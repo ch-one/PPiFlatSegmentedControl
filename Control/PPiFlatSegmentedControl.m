@@ -28,7 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         //Selection block
-        _selBlock=block;
+        _selectionBlock=block;
         
         //Icon separation
         self.iconSeparation = separation;
@@ -126,8 +126,8 @@
     if(sender) {
         NSUInteger selectedIndex=[self.segments indexOfObject:sender];
         [self setSelected:YES segmentAtIndex:selectedIndex];
-        if(self.selBlock) {
-            self.selBlock(selectedIndex);
+        if(self.selectionBlock) {
+            self.selectionBlock(selectedIndex);
         }
     }
 }

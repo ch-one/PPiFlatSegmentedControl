@@ -6,7 +6,7 @@ For better appearance you can add Font Awesome library to your project and use t
 [Font Awesome Icons](http://fortawesome.github.io/Font-Awesome/icons/)
 
 ## Installation
-Installation can be made easilly thanks to Pod in this repository. The only thing you have to do is add PPiFlatSegmentedControl in your Podfile
+Installation can be made easily thanks to Pod in this repository. The only thing you have to do is add PPiFlatSegmentedControl in your Podfile
 
 (If you haven't used CocoaPods before, you'll find more information [here](http://cocoapods.org/))
 

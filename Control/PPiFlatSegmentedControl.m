@@ -14,7 +14,6 @@
 @property (nonatomic,strong) NSMutableArray *segments;
 @property (nonatomic) NSUInteger currentSelected;
 @property (nonatomic,strong) NSMutableArray *separators;
-@property (nonatomic,copy) SelectionBlock selBlock;
 @property (nonatomic) CGFloat iconSeparation;
 @end
 

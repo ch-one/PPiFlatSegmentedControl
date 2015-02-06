@@ -126,9 +126,6 @@
     if(sender) {
         NSUInteger selectedIndex=[self.segments indexOfObject:sender];
         [self setSelected:YES segmentAtIndex:selectedIndex];
-        if(self.selectionBlock) {
-            self.selectionBlock(selectedIndex);
-        }
     }
 }
 
@@ -252,6 +249,10 @@
     if (selected) {
         self.currentSelected=segment;
         [self updateSegmentsFormat];
+        
+        if(self.selectionBlock) {
+            self.selectionBlock(segment);
+        }
     }
 }
 

@@ -11,7 +11,7 @@
 #import "UIAwesomeButton.h"
 #import "PPiFlatSegmentItem.h"
 
-typedef void(^selectionBlock)(NSUInteger segmentIndex);
+typedef void(^SelectionBlock)(NSUInteger segmentIndex);
 
 @interface PPiFlatSegmentedControl : UIControl
 
@@ -28,7 +28,7 @@ typedef void(^selectionBlock)(NSUInteger segmentIndex);
 - (id)initWithFrame:(CGRect)frame
               items:(NSArray*)items
        iconPosition:(IconPosition)position
-  andSelectionBlock:(selectionBlock)block
+  andSelectionBlock:(SelectionBlock)block
      iconSeparation:(CGFloat)separation;
 - (void)setItems:(NSArray*)items;
 - (void)setSelected:(BOOL)selected segmentAtIndex:(NSUInteger)segment;

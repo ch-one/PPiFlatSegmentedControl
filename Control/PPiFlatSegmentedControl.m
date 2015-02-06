@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSMutableArray *segments;
 @property (nonatomic) NSUInteger currentSelected;
 @property (nonatomic,strong) NSMutableArray *separators;
-@property (nonatomic,copy) selectionBlock selBlock;
+@property (nonatomic,copy) SelectionBlock selBlock;
 @property (nonatomic) CGFloat iconSeparation;
 @end
 
@@ -23,7 +23,7 @@
 - (id)initWithFrame:(CGRect)frame
               items:(NSArray*)items
        iconPosition:(IconPosition)position
-  andSelectionBlock:(selectionBlock)block
+  andSelectionBlock:(SelectionBlock)block
      iconSeparation:(CGFloat)separation
 {
     self = [super initWithFrame:frame];

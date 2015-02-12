@@ -12,7 +12,9 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSObject *icon;
+@property (nonatomic, strong) UIColor  *underlineColor;
 
 - (id)initWithTitle:(NSString*)title andIcon:(NSObject*)icon;
+- (id)initWithTitle:(NSString*)title andIcon:(NSObject*)icon underlineColor:(UIColor*)underlineColor;
 
 @end

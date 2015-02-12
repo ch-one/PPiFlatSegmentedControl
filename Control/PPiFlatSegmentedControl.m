@@ -14,6 +14,7 @@
 @property (nonatomic,strong) NSMutableArray *segments;
 @property (nonatomic) NSUInteger currentSelected;
 @property (nonatomic,strong) NSMutableArray *separators;
+@property (nonatomic,strong) NSMutableArray *underlines;
 @property (nonatomic) CGFloat iconSeparation;
 @end
 
@@ -63,9 +64,14 @@
         [segment removeFromSuperview];
     }
     [self.segments removeAllObjects];
+    for (UIView *underline in self.underlines) {
+        [underline removeFromSuperview];
+    }
+    [self.underlines removeAllObjects];
     
     //Generating segments
     float buttonWith=ceil(frame.size.width / items.count);
+    CGFloat underlineY = frame.size.height - self.underlineWidth;
     int i=0;
     for(PPiFlatSegmentItem *item in items){
         NSString *text=item.title;
@@ -88,6 +94,12 @@
         [self.segments addObject:button];
         [self addSubview:button];
         
+        // Adding underline
+        UIView *underline = [[UIView alloc] initWithFrame:CGRectMake(buttonWith*i, underlineY, buttonWith, self.underlineWidth)];
+        underline.backgroundColor = item.underlineColor ?: nil;
+        [self addSubview:underline];
+        [self.underlines addObject:underline];
+        
         //Adding separator
         if(i!=0){
             UIView *separatorView=[[UIView alloc] initWithFrame:CGRectMake(i*buttonWith, 0, self.borderWidth, frame.size.height)];
@@ -95,7 +107,13 @@
             [self.separators addObject:separatorView];
         }
         
+        
         i++;
+    }
+    
+    // Bringins separators to the front
+    for (UIView* underline in self.underlines) {
+        [self bringSubviewToFront:underline];
     }
     
     // Bringins separators to the front
@@ -110,6 +128,8 @@
     
     CGRect frame = self.frame;
     CGFloat buttonWidth = ceil(frame.size.width/self.segments.count);
+    CGFloat underlineY = frame.size.height - self.underlineWidth;
+    
     int i = 0;
     for(UIView *segment in self.segments){
         segment.frame = CGRectMake(i*buttonWidth, 0, buttonWidth, frame.size.height);
@@ -118,6 +138,11 @@
     i = 0;
     for (UIView *seperator in self.separators) {
         seperator.frame = CGRectMake(i*buttonWidth, 0, self.borderWidth, frame.size.height);
+        i++;
+    }
+    i = 0;
+    for (UIView *underline in self.underlines) {
+        underline.frame = CGRectMake(i*buttonWidth, underlineY, buttonWidth, self.underlineWidth);
         i++;
     }
 }
@@ -134,6 +159,11 @@
 {
     if(!_separators)_separators=[[NSMutableArray alloc] init];
     return _separators;
+}
+-(NSMutableArray*)underlines
+{
+    if(!_underlines)_underlines=[[NSMutableArray alloc] init];
+    return _underlines;
 }
 
 

@@ -12,10 +12,16 @@
 
 - (id)initWithTitle:(NSString*)title andIcon:(NSObject*)icon
 {
+    return [self initWithTitle:title andIcon:icon underlineColor:nil];
+}
+
+- (id)initWithTitle:(NSString*)title andIcon:(NSObject*)icon underlineColor:(UIColor*)underlineColor
+{
     self = [super init];
     if (self) {
         self.title = title;
         self.icon = icon;
+        self.underlineColor = underlineColor;
     }
     return self;
 }

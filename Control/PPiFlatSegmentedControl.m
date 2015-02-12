@@ -104,6 +104,24 @@
     }
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGRect frame = self.frame;
+    CGFloat buttonWidth = ceil(frame.size.width/self.segments.count);
+    int i = 0;
+    for(UIView *segment in self.segments){
+        segment.frame = CGRectMake(i*buttonWidth, 0, buttonWidth, frame.size.height);
+        i++;
+    }
+    i = 0;
+    for (UIView *seperator in self.separators) {
+        seperator.frame = CGRectMake(i*buttonWidth, 0, self.borderWidth, frame.size.height);
+        i++;
+    }
+}
+
 
 #pragma mark - Lazy instantiations
 

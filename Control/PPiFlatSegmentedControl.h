@@ -23,6 +23,7 @@ typedef void(^SelectionBlock)(NSUInteger segmentIndex);
 @property (nonatomic,strong) NSDictionary *textAttributes;
 @property (nonatomic,strong) NSDictionary *selectedTextAttributes;
 @property (nonatomic)  IconPosition iconPosition;
+@property (nonatomic) CGFloat iconSeparation;
 @property (nonatomic,readonly) NSUInteger numberOfSegments;
 @property (nonatomic,copy) SelectionBlock selectionBlock;
 @property (nonatomic) CGFloat underlineWidth;

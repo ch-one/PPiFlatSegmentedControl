@@ -15,7 +15,6 @@
 @property (nonatomic) NSUInteger currentSelected;
 @property (nonatomic,strong) NSMutableArray *separators;
 @property (nonatomic,strong) NSMutableArray *underlines;
-@property (nonatomic) CGFloat iconSeparation;
 @end
 
 @implementation PPiFlatSegmentedControl
@@ -274,6 +273,12 @@
 -(void)setIconPosition:(IconPosition)iconPosition
 {
     _iconPosition=iconPosition;
+    [self updateSegmentsFormat];
+}
+
+- (void)setIconSeparation:(CGFloat)iconSeparation
+{
+    _iconSeparation = iconSeparation;
     [self updateSegmentsFormat];
 }
 

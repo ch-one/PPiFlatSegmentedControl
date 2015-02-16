@@ -228,7 +228,11 @@
         [segment setTextAlignment:NSTextAlignmentCenter];
         
         //Setting icon separation
-        [segment setSeparation:self.iconSeparation];
+        if(([segment getIcon] || [segment getIconImage] || [segment getIconImageView]) && [segment getButtonText]){
+            [segment setSeparation:self.iconSeparation];
+        } else {
+            [segment setSeparation:0];
+        }
         
         //Setting format depending on if it's selected or not
         if([self.segments indexOfObject:segment]==self.currentSelected){

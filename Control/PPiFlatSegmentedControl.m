@@ -228,7 +228,7 @@
         [segment setTextAlignment:NSTextAlignmentCenter];
         
         //Setting icon separation
-        if(([segment getIcon] || [segment getIconImage] || [segment getIconImageView]) && [segment getButtonText]){
+        if(([segment getIcon] || [segment getIconImage]) && [segment getButtonText]){
             [segment setSeparation:self.iconSeparation];
         } else {
             [segment setSeparation:0];
